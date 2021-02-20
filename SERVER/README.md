@@ -23,7 +23,22 @@ Navigate to http://localhost:3000 to verify that your server is running.
 
 ## Accessing Database
 
-TODO
+Currently to simplify the database access process, the application is using sqlite, an SQL database engine. For now, this is will efficiently test our basic logic. In the future we will transition to using Postgres by changing the connections under [env.js](https://github.com/SirFancyWalrus/DogGo/blob/master/database/config/env.js). Since both use SQL, we would not need to change any other details in our program. To view the contents and tables within the database after deployment, navigate to the project directory and execute
+```
+sqlite3 db.sqlite
+```
+To view all tables
+```
+.tables
+```
+To view all seeded values in the table
+```
+select * from users;
+```
+To exit
+```
+.exit
+```
 
 
 ## Test Cases
