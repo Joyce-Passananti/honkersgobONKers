@@ -1,5 +1,12 @@
 const env = require('./env');
 const Sequelize = require('sequelize');     // Import Sequelize
+
+const sequelize = new Sequelize({           // Set database connections
+    dialect: env.DATABASE_DIALECT,
+    storage: env.DATABASE_STORAGE
+});
+
+/**
 const sequelize = new Sequelize(`postgres://${env.DATABASE_USERNAME}:${env.DATABASE_PASSWORD}@${env.DATABASE_HOST}:${env.DATABASE_PORT}/defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt&options=--cluster=honk-bonk-830`, {
     dialectOptions: {
         options: {
@@ -7,6 +14,7 @@ const sequelize = new Sequelize(`postgres://${env.DATABASE_USERNAME}:${env.DATAB
         }
     }
 });
+ **/
 const seed = require('./seed');
 
 // Connect to database
