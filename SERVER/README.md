@@ -10,7 +10,7 @@ Check that node and npm are installed and up to date
 
 ## Deployment
 
-When deploying the server project in the WebStorm IDE for the first time, open the Terminal at the bottom section and run 
+When deploying the server project for the first time, navigate to the project directory in Terminal and run 
 ```
 npm install
 ```
