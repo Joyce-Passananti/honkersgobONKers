@@ -8,8 +8,9 @@ module.exports = (Sequelize, sequelize) => {
                 primaryKey: true,
                 autoIncrement: true
             },
-            firstName: Sequelize.STRING,    // define column: firstName
-            lastName: Sequelize.STRING,     // define column: lastName
+            username: Sequelize.STRING,
+            password: Sequelize.STRING,
+            age: Sequelize.INTEGER
         }
     );
     return user;
