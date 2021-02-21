@@ -10,6 +10,8 @@ export type BottomTabParamList = {
 
 export type ProfileParamList = {
   ProfileScreen: undefined;
+  // Username: string;
+  // Password: string;
 };
 
 export type SearchParamList = {
