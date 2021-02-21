@@ -1,20 +1,26 @@
 const env = require('./env');
-const Sequelize = require('sequelize');     // Import Sequelize
-
+const Sequelize = require('sequelize-cockroachdb');     // Import Sequelize
+var fs = require('fs');
+/**
 const sequelize = new Sequelize({           // Set database connections
     dialect: env.DATABASE_DIALECT,
     storage: env.DATABASE_STORAGE
 });
+**/
 
-/**
-const sequelize = new Sequelize(`postgres://${env.DATABASE_USERNAME}:${env.DATABASE_PASSWORD}@${env.DATABASE_HOST}:${env.DATABASE_PORT}/defaultdb?sslmode=verify-full&sslrootcert=cc-ca.crt&options=--cluster=honk-bonk-830`, {
+// Connect to CockroachDB through Sequelize.
+const sequelize = new Sequelize('honk-bonk-830.defaultdb', 'cindy', 'bMGsDsyvG_9Yyu8w', {
+    dialect: 'postgres',
+    host: 'free-tier.gcp-us-central1.cockroachlabs.cloud',
+    port: 26257,
+    logging: console.log,
     dialectOptions: {
-        options: {
-            encrypt: true
+        ssl: {
+            ca: fs.readFileSync(__dirname + '/my_cert/cc-ca.crt').toString(),
         }
     }
 });
- **/
+
 const seed = require('./seed');
 
 // Connect to database
